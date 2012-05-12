@@ -5,7 +5,6 @@ import java.util.Date;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.text.format.DateFormat;
 
 import jp.mog2dev.chargebadge.R;
 import jp.mog2dev.chargebadge.battery.BatteryInfo;
