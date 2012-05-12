@@ -16,6 +16,7 @@ public abstract class AbstractAchivement implements IAchivement
     protected String name;
     protected int badge;
     protected int lockedBadge;
+    protected int detailBadge;
     protected String description;
     protected Date unlocked;
 
@@ -43,6 +44,11 @@ public abstract class AbstractAchivement implements IAchivement
     public int getLockedBadge()
     {
         return this.lockedBadge;
+    }
+    @Override
+    public int getDetailBadge()
+    {
+        return this.detailBadge;
     }
     @Override
     public String getDescription()

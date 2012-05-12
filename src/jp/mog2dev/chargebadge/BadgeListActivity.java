@@ -12,7 +12,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.GridView;
 
-public class ChargeBadgeActivity extends ActionBarActivity {
+public class BadgeListActivity extends ActionBarActivity {
 
     private BatteryMonitoringBroadcastReceiver mBroadcastReceiver = new BatteryMonitoringBroadcastReceiver();
     
@@ -32,9 +32,9 @@ public class ChargeBadgeActivity extends ActionBarActivity {
     private void setupAchivementsGrid()
     {
         ArrayList<IAchivement> achivements = AchivementManager.getInstance(getApplicationContext()).getAchivements();
-        AchivementAdapter adapter = new AchivementAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, achivements);
+        AchivementAdapter adapter = new AchivementAdapter(getApplicationContext(), this, android.R.layout.simple_list_item_1, achivements);
  
-        GridView gridView = (GridView) findViewById(R.id.gridView1);
+        GridView gridView = (GridView) findViewById(R.id.gridView);
         gridView.setAdapter(adapter);
     }
 
@@ -44,4 +44,10 @@ public class ChargeBadgeActivity extends ActionBarActivity {
         unregisterReceiver(mBroadcastReceiver);
     }
     
+    public void pushDetailActivity(String key)
+    {
+        Intent intent = new Intent(this, BadgeDetailActivity.class);
+        intent.putExtra("key", key);
+        this.startActivity(intent);
+    }
 }

@@ -4,15 +4,16 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#E0E0E0"
-    android:paddingTop="20dp"
+    android:paddingTop="50dp"
     >
     
-    <GridView android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp">
-    </GridView>
+    <ImageView
+        android:id="@+id/badge"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        />
+/>
     
 </LinearLayout>

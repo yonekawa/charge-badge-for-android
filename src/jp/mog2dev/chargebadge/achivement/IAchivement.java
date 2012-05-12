@@ -10,6 +10,7 @@ public interface IAchivement
     public String getName();
     public int getBadge();
     public int getLockedBadge();
+    public int getDetailBadge();
     public String getDescription();
     
     public boolean isUnlockable(BatteryInfo battery);
