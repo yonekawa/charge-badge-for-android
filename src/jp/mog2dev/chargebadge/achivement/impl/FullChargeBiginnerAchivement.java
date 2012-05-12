@@ -23,6 +23,6 @@ public class FullChargeBiginnerAchivement extends AbstractAchivement
     @Override
     public boolean isUnlockable(BatteryInfo battery)
     {
-        return battery.getFromStatus() == BatteryManager.BATTERY_STATUS_FULL && battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING;
+        return battery.getFromStatus() == BatteryManager.BATTERY_STATUS_CHARGING && battery.getStatus() == BatteryManager.BATTERY_STATUS_FULL;
     }
 }
