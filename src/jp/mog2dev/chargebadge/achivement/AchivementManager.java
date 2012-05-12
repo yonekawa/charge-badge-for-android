@@ -31,8 +31,8 @@ public class AchivementManager
        this.achivements.add(new StartBiginnerAchivement(context));
        this.achivements.add(new StopBiginnerAchivement(context));
        this.achivements.add(new FullChargeBiginnerAchivement(context));
-       this.achivements.add(new ReadyToGoAchivement(context));
        this.achivements.add(new HungryAchivement(context));
+       this.achivements.add(new ReadyToGoAchivement(context));
        this.achivements.add(new LongSleeperAchivement(context));
        this.achivements.add(new TwentyFourAchivement(context));
        this.achivements.add(new SpeedStarAchivement(context));
