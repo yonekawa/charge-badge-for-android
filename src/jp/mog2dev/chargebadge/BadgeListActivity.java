@@ -35,6 +35,13 @@ public class BadgeListActivity extends ActionBarActivity {
         startService(intent);
     }
     
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        unregisterReceiver(this.unlockReceiver);
+    }
+    
     private void setupAchivementsGrid()
     {
         ArrayList<IAchivement> achivements = AchivementManager.getInstance(getApplicationContext()).getAchivements();
