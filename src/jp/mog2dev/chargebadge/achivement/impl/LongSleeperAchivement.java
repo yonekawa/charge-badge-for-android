@@ -23,7 +23,7 @@ public class LongSleeperAchivement extends AbstractAchivement
     public boolean isUnlockable(BatteryInfo battery)
     {
         long elasped = System.currentTimeMillis() - battery.getChargeStartedAt();
-        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && elasped > (12 * 60 * 60 * 1000); // 12 hour
+        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && elasped > (12 * 60 * 60 * 1000); // 12 hours
     }
 
 }

@@ -23,7 +23,7 @@ public class TwentyFourAchivement extends AbstractAchivement
     public boolean isUnlockable(BatteryInfo battery)
     {
         long elasped = System.currentTimeMillis() - battery.getChargeStartedAt();
-        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && elasped > (24 * 60 * 60 * 1000); // 24 hour
+        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && elasped > (24 * 60 * 60 * 1000); // 24 hours
     }
 
 }

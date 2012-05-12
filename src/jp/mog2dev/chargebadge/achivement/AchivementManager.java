@@ -36,6 +36,10 @@ public class AchivementManager
        this.achivements.add(new LongSleeperAchivement(context));
        this.achivements.add(new TwentyFourAchivement(context));
        this.achivements.add(new SpeedStarAchivement(context));
+       this.achivements.add(new AllNightLongAchivement(context));
+       this.achivements.add(new SuperManAchivement(context));
+       this.achivements.add(new RunawayAchivement(context));
+       this.achivements.add(new FireAchivement(context));
    }
    
    public ArrayList<IAchivement> getAchivements()
