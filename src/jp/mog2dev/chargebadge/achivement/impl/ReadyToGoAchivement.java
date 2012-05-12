@@ -15,6 +15,7 @@ public class ReadyToGoAchivement extends AbstractAchivement
         this.key = "ready_to_go_achivement";
         this.badge = R.drawable.badge04;
         this.lockedBadge = R.drawable.badge04_lock;
+        this.detailBadge = R.drawable.badge04_large;
         this.name = context.getString(R.string.achivement_ready_to_go);
         this.description = context.getString(R.string.achivement_ready_to_go_description);
     }

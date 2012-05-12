@@ -15,6 +15,7 @@ public class SpeedStarAchivement extends AbstractAchivement
         this.key = "speed_star_achivement";
         this.badge = R.drawable.badge08;
         this.lockedBadge = R.drawable.badge08_lock;
+        this.detailBadge = R.drawable.badge08_large;
         this.name = context.getString(R.string.achivement_speed_star);
         this.description = context.getString(R.string.achivement_speed_star_description);
     }

@@ -15,6 +15,7 @@ public class FireAchivement extends AbstractAchivement
         this.key = "fire_achivement";
         this.badge = R.drawable.badge12;
         this.lockedBadge = R.drawable.badge12_lock;
+        this.detailBadge = R.drawable.badge12_large;
         this.name = context.getString(R.string.achivement_fire);
         this.description = context.getString(R.string.achivement_fire_description);
     }

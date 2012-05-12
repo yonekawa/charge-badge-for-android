@@ -15,6 +15,7 @@ public class RunawayAchivement extends AbstractAchivement
         this.key = "runaway_achivement";
         this.badge = R.drawable.badge11;
         this.lockedBadge = R.drawable.badge11_lock;
+        this.detailBadge = R.drawable.badge11_large;
         this.name = context.getString(R.string.achivement_runaway);
         this.description = context.getString(R.string.achivement_runaway_description);
     }

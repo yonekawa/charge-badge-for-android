@@ -15,6 +15,7 @@ public class SuperManAchivement extends AbstractAchivement
         this.key = "super_man_achivement";
         this.badge = R.drawable.badge10;
         this.lockedBadge = R.drawable.badge10_lock;
+        this.detailBadge = R.drawable.badge10_large;
         this.name = context.getString(R.string.achivement_super_man);
         this.description = context.getString(R.string.achivement_super_man_description);
     }

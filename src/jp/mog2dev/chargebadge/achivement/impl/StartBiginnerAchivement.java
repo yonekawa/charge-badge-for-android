@@ -15,6 +15,7 @@ public class StartBiginnerAchivement extends AbstractAchivement
         this.key = "start_biginner_achivement";
         this.badge = R.drawable.badge01;
         this.lockedBadge = R.drawable.badge01_lock;
+        this.detailBadge = R.drawable.badge01_large;
         this.name = context.getString(R.string.achivement_start_biginner);
         this.description = context.getString(R.string.achivement_start_biginner_description);
     }

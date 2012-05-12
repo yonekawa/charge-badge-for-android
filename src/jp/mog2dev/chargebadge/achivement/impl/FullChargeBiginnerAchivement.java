@@ -15,6 +15,7 @@ public class FullChargeBiginnerAchivement extends AbstractAchivement
         this.key = "full_charge_biginner_achivement";
         this.badge = R.drawable.badge03;
         this.lockedBadge = R.drawable.badge03_lock;
+        this.detailBadge = R.drawable.badge03_large;
         this.name = context.getString(R.string.achivement_full_charge_biginner);
         this.description = context.getString(R.string.achivement_full_charge_biginner_description);
     }

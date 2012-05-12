@@ -15,6 +15,7 @@ public class LongSleeperAchivement extends AbstractAchivement
         this.key = "long_sleeper_achivement";
         this.badge = R.drawable.badge06;
         this.lockedBadge = R.drawable.badge06_lock;
+        this.detailBadge = R.drawable.badge06_large;
         this.name = context.getString(R.string.achivement_long_sleeper);
         this.description = context.getString(R.string.achivement_long_sleeper_description);
     }

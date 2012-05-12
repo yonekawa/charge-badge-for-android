@@ -15,6 +15,7 @@ public class TwentyFourAchivement extends AbstractAchivement
         this.key = "24_achivement";
         this.badge = R.drawable.badge07;
         this.lockedBadge = R.drawable.badge07_lock;
+        this.detailBadge = R.drawable.badge07_large;
         this.name = context.getString(R.string.achivement_24);
         this.description = context.getString(R.string.achivement_24_description);
     }

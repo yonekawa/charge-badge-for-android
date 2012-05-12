@@ -40,8 +40,7 @@ public class BadgeDetailActivity extends ActionBarActivity
         ImageView badge = (ImageView) this.findViewById(R.id.achivement_badge);
         TextView name = (TextView) this.findViewById(R.id.achivement_name);
         TextView description = (TextView) this.findViewById(R.id.achivement_description);
-        //badge.setImageDrawable(this.getResources().getDrawable(target.getDetailBadge()));
-        badge.setImageDrawable(this.getResources().getDrawable(target.getBadge()));
+        badge.setImageDrawable(this.getResources().getDrawable(target.getDetailBadge()));
         name.setText(target.getName());
         description.setText(target.getDescription());
     }

@@ -15,6 +15,7 @@ public class HungryAchivement extends AbstractAchivement
         this.key = "hungry_achivement";
         this.badge = R.drawable.badge05;
         this.lockedBadge = R.drawable.badge05_lock;
+        this.detailBadge = R.drawable.badge05_large;
         this.name = context.getString(R.string.achivement_hungry);
         this.description = context.getString(R.string.achivement_hungry_description);
     }

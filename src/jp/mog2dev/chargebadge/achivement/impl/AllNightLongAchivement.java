@@ -15,6 +15,7 @@ public class AllNightLongAchivement extends AbstractAchivement
         this.key = "all_night_long_achivement";
         this.badge = R.drawable.badge09;
         this.lockedBadge = R.drawable.badge09_lock;
+        this.detailBadge = R.drawable.badge09_large;
         this.name = context.getString(R.string.achivement_all_night_long);
         this.description = context.getString(R.string.achivement_all_night_long_description);
     }
