@@ -6,18 +6,19 @@ import com.example.android.actionbarcompat.ActionBarActivity;
 
 import jp.mog2dev.chargebadge.achivement.AchivementManager;
 import jp.mog2dev.chargebadge.achivement.IAchivement;
-import jp.mog2dev.chargebadge.broadcast.BatteryMonitoringBroadcastReceiver;
+import jp.mog2dev.chargebadge.service.BatteryMonitoringService;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.GridView;
 
 public class BadgeListActivity extends ActionBarActivity {
 
-    private BatteryMonitoringBroadcastReceiver mBroadcastReceiver = new BatteryMonitoringBroadcastReceiver(this);
     private GridView view;
+    private UnlockBroadcastReceiver unlockReceiver = new UnlockBroadcastReceiver(this);
     
     /** Called when the activity is first created. */
     @Override
@@ -27,8 +28,11 @@ public class BadgeListActivity extends ActionBarActivity {
         this.setupAchivementsGrid();
         
         IntentFilter filter = new IntentFilter();
-        filter.addAction(Intent.ACTION_BATTERY_CHANGED);
-        registerReceiver(mBroadcastReceiver, filter);
+        filter.addAction(BatteryMonitoringService.UNLOCKED);
+        registerReceiver(this.unlockReceiver, filter);
+        
+        Intent intent = new Intent(this, BatteryMonitoringService.class);
+        startService(intent);
     }
     
     private void setupAchivementsGrid()
@@ -39,12 +43,6 @@ public class BadgeListActivity extends ActionBarActivity {
         GridView gridView = (GridView) findViewById(R.id.gridView);
         gridView.setAdapter(adapter);
         this.view = gridView;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onStop();
-        unregisterReceiver(mBroadcastReceiver);
     }
     
     public void pushDetailActivity(String key)
@@ -72,4 +70,25 @@ public class BadgeListActivity extends ActionBarActivity {
             this.view.invalidateViews();
         }
     }
+    
+    private class UnlockBroadcastReceiver extends BroadcastReceiver
+    {
+        private BadgeListActivity activity;
+        public UnlockBroadcastReceiver(BadgeListActivity activity)
+        {
+            super();
+            this.activity = activity;
+        }
+        
+        @Override
+        public void onReceive(Context context, Intent intent)
+        {
+            String action = intent.getAction();
+            if (!action.equals(BatteryMonitoringService.UNLOCKED)) {
+                return;
+            }
+            this.activity.invalidateView();
+        }
+    }
+
 }
