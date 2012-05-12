@@ -94,11 +94,11 @@ public class ActionBarHelperBase extends ActionBarHelper {
         springLayoutParams.weight = 1;
 
         // Add Home button
-        SimpleMenu tempMenu = new SimpleMenu(mActivity);
-        SimpleMenuItem homeItem = new SimpleMenuItem(
-                tempMenu, android.R.id.home, 0, mActivity.getString(R.string.app_name));
-        homeItem.setIcon(R.drawable.ic_home);
-        addActionItemCompatFromMenuItem(homeItem);
+        //SimpleMenu tempMenu = new SimpleMenu(mActivity);
+        //SimpleMenuItem homeItem = new SimpleMenuItem(
+        //        tempMenu, android.R.id.home, 0, mActivity.getString(R.string.app_name));
+        //homeItem.setIcon(R.drawable.ic_home);
+        //addActionItemCompatFromMenuItem(homeItem);
 
         // Add title text
         TextView titleText = new TextView(mActivity, null, R.attr.actionbarCompatTitleStyle);

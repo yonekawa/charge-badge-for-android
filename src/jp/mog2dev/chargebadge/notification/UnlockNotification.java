@@ -16,7 +16,7 @@ public class UnlockNotification
         String body = String.format(context.getString(R.string.unlock_notification_format), achivement.getName());
         
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = new Notification(android.R.drawable.btn_default, body, System.currentTimeMillis());
+        Notification notification = new Notification(R.drawable.ic_launcher, body, System.currentTimeMillis());
         
         Intent intent = new Intent(context, BadgeDetailActivity.class);
         intent.putExtra("key", achivement.getKey());
