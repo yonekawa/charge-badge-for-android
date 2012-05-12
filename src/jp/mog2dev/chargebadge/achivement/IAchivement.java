@@ -8,7 +8,8 @@ public interface IAchivement
     public void setContext(Context context);
     public String getKey();
     public String getName();
-    public int getBadgeId();
+    public int getBadge();
+    public int getLockedBadge();
     public String getDescription();
     
     public boolean isUnlockable(BatteryInfo battery);

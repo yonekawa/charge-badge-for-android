@@ -2,6 +2,8 @@ package jp.mog2dev.chargebadge;
 
 import java.util.ArrayList;
 
+import com.example.android.actionbarcompat.ActionBarActivity;
+
 import jp.mog2dev.chargebadge.achivement.AchivementManager;
 import jp.mog2dev.chargebadge.achivement.IAchivement;
 import jp.mog2dev.chargebadge.achivement.impl.StartBiginnerAchivement;
@@ -14,11 +16,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-public class ChargeBadgeActivity extends Activity {
+public class ChargeBadgeActivity extends ActionBarActivity {
     
     /** Called when the activity is first created. */
     @Override
@@ -35,20 +38,8 @@ public class ChargeBadgeActivity extends Activity {
     
     private void setupAchivementsGrid()
     {
-        ArrayList<String> list = new ArrayList<String>();
-
         ArrayList<IAchivement> achivements = AchivementManager.getInstance(getApplicationContext()).getAchivements();
-        for (IAchivement achivement : achivements)
-        {
-            if (achivement.isUnlocked()) {
-                list.add("Unlocked!");
-            } else {
-                list.add("Lock");
-            }
-        }
- 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                getApplicationContext(), android.R.layout.simple_list_item_1, list);
+        AchivementAdapter adapter = new AchivementAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, achivements);
  
         GridView gridView = (GridView) findViewById(R.id.gridView1);
         gridView.setAdapter(adapter);
@@ -87,15 +78,20 @@ public class ChargeBadgeActivity extends Activity {
                 battery.setPlugged(intent.getIntExtra("plugged", 0));
                 battery.setTemperature(intent.getIntExtra("temperature", 0));
                 
+                boolean isUnlockedSomething = false;
                 ArrayList<IAchivement> achivements = AchivementManager.getInstance(getApplicationContext()).getAchivements();
                 for (IAchivement achivement : achivements)
                 {
                     if (!achivement.isUnlocked() && achivement.isUnlockable(battery)) {
                         achivement.unlock();
+                        isUnlockedSomething = true;
                         UnlockNotification.send(context, achivement);
                     }
                 }
                 
+                if (isUnlockedSomething) {
+                    // invalidate;
+                }
                 this.isReceving = false;
             }
         }

@@ -13,6 +13,8 @@ public class FullChargeBiginnerAchivement extends AbstractAchivement
         super();
         this.context = context;
         this.key = "full_charge_biginner_achivement";
+        this.badge = R.drawable.badge03;
+        this.lockedBadge = R.drawable.badge03_lock;
         this.name = context.getString(R.string.achivement_full_charge_biginner);
         this.description = context.getString(R.string.achivement_full_charge_biginner_description);
     }
@@ -20,6 +22,6 @@ public class FullChargeBiginnerAchivement extends AbstractAchivement
     @Override
     public boolean isUnlockable(BatteryInfo battery)
     {
-        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && battery.getFromStatus() == BatteryManager.BATTERY_STATUS_FULL;
+        return battery.getFromStatus() == BatteryManager.BATTERY_STATUS_FULL && battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING;
     }
 }

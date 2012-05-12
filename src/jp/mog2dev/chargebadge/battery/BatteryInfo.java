@@ -89,22 +89,24 @@ public class BatteryInfo
         this.chargeDistanceTime = 0;
         this.chargingTime = 0;
         
-        int from = this.status;
-        if (from == to) {
+        if (this.status == to) {
+            this.fromStatus = this.status;
+            this.status = to;
             return;
         }
         
-        if (from == BatteryManager.BATTERY_STATUS_DISCHARGING && to == BatteryManager.BATTERY_STATUS_CHARGING)
+        if (this.status == BatteryManager.BATTERY_STATUS_DISCHARGING && to == BatteryManager.BATTERY_STATUS_CHARGING)
         {
             // Start charge.
             this.chargeDistanceTime = System.currentTimeMillis() - this.lastChargedAt;
         }
-        else if (from == BatteryManager.BATTERY_STATUS_CHARGING && to == BatteryManager.BATTERY_STATUS_DISCHARGING)
+        else if (this.status == BatteryManager.BATTERY_STATUS_CHARGING && to == BatteryManager.BATTERY_STATUS_DISCHARGING)
         {
             // Stop charge.
             this.chargingTime = System.currentTimeMillis() - this.chargeStartedAt;
         }
+
+        this.fromStatus = this.status;
         this.status = to;
-        this.fromStatus = from;
     }
 }

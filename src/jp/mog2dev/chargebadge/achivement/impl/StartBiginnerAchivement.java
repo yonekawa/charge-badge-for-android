@@ -13,6 +13,8 @@ public class StartBiginnerAchivement extends AbstractAchivement
         super();
         this.context = context;
         this.key = "start_biginner_achivement";
+        this.badge = R.drawable.badge01;
+        this.lockedBadge = R.drawable.badge01_lock;
         this.name = context.getString(R.string.achivement_start_biginner);
         this.description = context.getString(R.string.achivement_start_biginner_description);
     }
@@ -20,6 +22,6 @@ public class StartBiginnerAchivement extends AbstractAchivement
     @Override
     public boolean isUnlockable(BatteryInfo battery)
     {
-        return battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING && battery.getFromStatus() == BatteryManager.BATTERY_STATUS_DISCHARGING;
+        return battery.getFromStatus() == BatteryManager.BATTERY_STATUS_DISCHARGING && battery.getStatus() == BatteryManager.BATTERY_STATUS_CHARGING;
     }
 }
