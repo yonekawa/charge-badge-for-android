@@ -40,4 +40,16 @@ public class AchivementManager
    {
        return this.achivements;
    }
+   
+   public IAchivement findAchivement(String key)
+   {
+       for (IAchivement achivement : this.achivements)
+       {
+           if (achivement.getKey().equals(key))
+           {
+               return achivement;
+           }
+       }
+       return null;
+   }
 }
