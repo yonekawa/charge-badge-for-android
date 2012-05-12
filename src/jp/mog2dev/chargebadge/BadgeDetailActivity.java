@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import jp.mog2dev.chargebadge.achivement.AchivementManager;
 import jp.mog2dev.chargebadge.achivement.IAchivement;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -32,6 +33,9 @@ public class BadgeDetailActivity extends ActionBarActivity
                 break;
             }
         }
+        
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.cancel(target.getBadge());
         
         ImageView badge = (ImageView) this.findViewById(R.id.achivement_badge);
         TextView name = (TextView) this.findViewById(R.id.achivement_name);

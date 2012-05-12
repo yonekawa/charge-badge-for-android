@@ -1,5 +1,6 @@
 package jp.mog2dev.chargebadge.notification;
 
+import jp.mog2dev.chargebadge.BadgeDetailActivity;
 import jp.mog2dev.chargebadge.R;
 import jp.mog2dev.chargebadge.achivement.IAchivement;
 import android.app.Notification;
@@ -17,9 +18,11 @@ public class UnlockNotification
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = new Notification(android.R.drawable.btn_default, body, System.currentTimeMillis());
         
-        Intent intent = new Intent(Intent.ACTION_VIEW);
+        //Intent intent = new Intent(Intent.ACTION_VIEW);
+        Intent intent = new Intent(context, BadgeDetailActivity.class);
+        intent.putExtra("key", achivement.getKey());
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 0);
         notification.setLatestEventInfo(context, context.getString(R.string.app_name), body, contentIntent);
-        notificationManager.notify(R.string.app_name, notification);
+        notificationManager.notify(achivement.getBadge(), notification);
     }
 }
