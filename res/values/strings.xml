@@ -26,5 +26,6 @@
     <string name="achivement_runaway_description">3日ぶりの充電です。グレた？</string>
     <string name="achivement_fire">FIRE</string>
     <string name="achivement_fire_description">これはタダゴトじゃないぜ！！！</string>
+    <string name="unlocked_date_format">%1$4d年%2$02d月%3$02d日にゲットしました。</string>
 
 </resources>

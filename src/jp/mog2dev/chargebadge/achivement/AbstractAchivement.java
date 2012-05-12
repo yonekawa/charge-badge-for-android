@@ -5,7 +5,9 @@ import java.util.Date;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.text.format.DateFormat;
 
+import jp.mog2dev.chargebadge.R;
 import jp.mog2dev.chargebadge.battery.BatteryInfo;
 
 public abstract class AbstractAchivement implements IAchivement
@@ -55,6 +57,19 @@ public abstract class AbstractAchivement implements IAchivement
     {
         return this.description;
     }
+    public String getUnlockedDateString()
+    {
+        if (this.unlocked == null) {
+            SharedPreferences pref = this.context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+            long mills = pref.getLong(this.key + "_unlocked", 0);
+            this.unlocked = new Date(mills);
+        }
+        return String.format(this.context.getString(R.string.unlocked_date_format),
+                this.unlocked.getYear() + 1900,
+                this.unlocked.getMonth() + 1,
+                this.unlocked.getDate());
+                
+    }
     
     @Override
     public boolean isUnlocked()
@@ -69,6 +84,7 @@ public abstract class AbstractAchivement implements IAchivement
         SharedPreferences pref = this.context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         Editor e = pref.edit();
         e.putBoolean(this.key, true);
+        e.putLong(this.key + "_unlocked", System.currentTimeMillis());
         e.commit();
     }
     
