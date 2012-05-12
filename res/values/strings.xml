@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ChargeBadge</string>
-    <string name="unlock_notification_format">%sをアンロック！</string>
+    <string name="unlock_notification_format">「%s」をアンロック！</string>
     <string name="achivement_start_biginner">はじめまして</string>
     <string name="achivement_stop_biginner">初めてのおでかけ</string>
     <string name="achivement_start_biginner_description">初めての充電で、バッヂを手に入れました！</string>
     <string name="achivement_stop_biginner_description">初めて充電を終わりました。これからどこに出かけますか？</string>
     <string name="achivement_full_charge_biginner">おなかいっぱい</string>
     <string name="achivement_full_charge_biginner_description">初めてのフル充電です。これで外出中は安心ですね！</string>
+    <string name="achivement_ready_to_go">いつでも行けるぜ</string>
+    <string name="achivement_ready_to_go_description">このくらいだったら気にせずに俺を連れだしてくれよ。</string>
+    <string name="achivement_hungry">ぺこぺこ</string>
+    <string name="achivement_hungry_description">もうちょっとでバッテリーが切れるところでした。</string>
 
 </resources>
