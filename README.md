@@ -1,2 +1,2 @@
-chage-badge-for-android
+charge-badge-for-android
 =======================
