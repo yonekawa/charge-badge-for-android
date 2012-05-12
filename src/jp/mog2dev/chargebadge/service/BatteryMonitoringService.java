@@ -44,7 +44,6 @@ public class BatteryMonitoringService extends Service
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
-        Toast.makeText(this, "BatteryMonitoringService#onStartCommand", Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
 
