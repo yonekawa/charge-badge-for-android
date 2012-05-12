@@ -8,13 +8,10 @@ public class BatteryInfo
     private int fromStatus = BatteryManager.BATTERY_STATUS_DISCHARGING;
     private long chargeStartedAt = System.currentTimeMillis();
     private long lastChargedAt = System.currentTimeMillis();
-    private long chargingTime = 0;
     protected int health;
     protected int level;
     protected int temperature;
     protected int plugged;
-    
-    private long chargeDistanceTime = 0;
     
     private static BatteryInfo instance;
     private BatteryInfo()
@@ -43,13 +40,13 @@ public class BatteryInfo
     {
         return this.fromStatus;
     }
-    public long getChargingTime()
+    public long getChargeStartedAt()
     {
-        return this.chargingTime;
+        return this.chargeStartedAt;
     }
-    public long getChargeDistanceTime()
+    public long getLastChargedAt()
     {
-        return this.chargeDistanceTime;
+        return this.lastChargedAt;
     }
     public int getHealth()
     {
@@ -86,9 +83,6 @@ public class BatteryInfo
     
     public void changeState(int to)
     {
-        this.chargeDistanceTime = 0;
-        this.chargingTime = 0;
-        
         if (this.status == to) {
             this.fromStatus = this.status;
             this.status = to;
@@ -98,12 +92,12 @@ public class BatteryInfo
         if (this.status == BatteryManager.BATTERY_STATUS_DISCHARGING && to == BatteryManager.BATTERY_STATUS_CHARGING)
         {
             // Start charge.
-            this.chargeDistanceTime = System.currentTimeMillis() - this.lastChargedAt;
+            this.chargeStartedAt = System.currentTimeMillis();
         }
         else if (this.status == BatteryManager.BATTERY_STATUS_CHARGING && to == BatteryManager.BATTERY_STATUS_DISCHARGING)
         {
             // Stop charge.
-            this.chargingTime = System.currentTimeMillis() - this.chargeStartedAt;
+            this.lastChargedAt = System.currentTimeMillis();
         }
 
         this.fromStatus = this.status;

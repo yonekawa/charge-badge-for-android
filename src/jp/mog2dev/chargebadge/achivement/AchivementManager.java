@@ -3,12 +3,7 @@ package jp.mog2dev.chargebadge.achivement;
 import java.util.ArrayList;
 
 import android.content.Context;
-
-import jp.mog2dev.chargebadge.achivement.impl.FullChargeBiginnerAchivement;
-import jp.mog2dev.chargebadge.achivement.impl.HungryAchivement;
-import jp.mog2dev.chargebadge.achivement.impl.ReadyToGoAchivement;
-import jp.mog2dev.chargebadge.achivement.impl.StartBiginnerAchivement;
-import jp.mog2dev.chargebadge.achivement.impl.StopBiginnerAchivement;
+import jp.mog2dev.chargebadge.achivement.impl.*;
 
 public class AchivementManager
 {
@@ -38,6 +33,9 @@ public class AchivementManager
        this.achivements.add(new FullChargeBiginnerAchivement(context));
        this.achivements.add(new ReadyToGoAchivement(context));
        this.achivements.add(new HungryAchivement(context));
+       this.achivements.add(new LongSleeperAchivement(context));
+       this.achivements.add(new TwentyFourAchivement(context));
+       this.achivements.add(new SpeedStarAchivement(context));
    }
    
    public ArrayList<IAchivement> getAchivements()
