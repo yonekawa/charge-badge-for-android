@@ -7,6 +7,7 @@ import jp.mog2dev.chargebadge.achivement.IAchivement;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.android.actionbarcompat.ActionBarActivity;
 
@@ -32,8 +33,12 @@ public class BadgeDetailActivity extends ActionBarActivity
             }
         }
         
-        ImageView badge = (ImageView) this.findViewById(R.id.badge);
+        ImageView badge = (ImageView) this.findViewById(R.id.achivement_badge);
+        TextView name = (TextView) this.findViewById(R.id.achivement_name);
+        TextView description = (TextView) this.findViewById(R.id.achivement_description);
         //badge.setImageDrawable(this.getResources().getDrawable(target.getDetailBadge()));
         badge.setImageDrawable(this.getResources().getDrawable(target.getBadge()));
+        name.setText(target.getName());
+        description.setText(target.getDescription());
     }
 }
