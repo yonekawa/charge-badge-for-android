@@ -10,18 +10,20 @@ import jp.mog2dev.chargebadge.broadcast.BatteryMonitoringBroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.GridView;
 
 public class BadgeListActivity extends ActionBarActivity {
 
-    private BatteryMonitoringBroadcastReceiver mBroadcastReceiver = new BatteryMonitoringBroadcastReceiver();
+    private BatteryMonitoringBroadcastReceiver mBroadcastReceiver = new BatteryMonitoringBroadcastReceiver(this);
+    private GridView view;
     
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
         this.setupAchivementsGrid();
         
         IntentFilter filter = new IntentFilter();
@@ -36,6 +38,7 @@ public class BadgeListActivity extends ActionBarActivity {
  
         GridView gridView = (GridView) findViewById(R.id.gridView);
         gridView.setAdapter(adapter);
+        this.view = gridView;
     }
 
     @Override
@@ -49,5 +52,24 @@ public class BadgeListActivity extends ActionBarActivity {
         Intent intent = new Intent(this, BadgeDetailActivity.class);
         intent.putExtra("key", key);
         this.startActivity(intent);
+    }
+    
+    public void invalidateView()
+    {
+        new Handler().post(new InvalidateRunnable(this.view));
+    }
+    
+    private class InvalidateRunnable implements Runnable
+    {
+        private GridView view;
+        public InvalidateRunnable(final GridView view)
+        {
+            this.view = view;
+        }
+        
+        @Override
+        public void run() {
+            this.view.invalidateViews();
+        }
     }
 }

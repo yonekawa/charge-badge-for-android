@@ -27,19 +27,17 @@ public class AchivementAdapter extends ArrayAdapter<IAchivement> implements OnCl
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         IAchivement item = (IAchivement)getItem(position);
-        if (null == convertView) {
-            ImageButton imageButton = new ImageButton(this.getContext());
-            imageButton.setTag(item.getKey());
-            int id = item.isUnlocked() ? item.getBadge() : item.getLockedBadge();
-            Drawable drawable = this.getContext().getResources().getDrawable(id);
-            imageButton.setImageDrawable(drawable);
-            imageButton.setBackgroundColor(Color.TRANSPARENT);
-            if (item.isUnlocked())
-            {
-                imageButton.setOnClickListener(this);
-            }
-            convertView = imageButton;
+        ImageButton imageButton = new ImageButton(this.getContext());
+        imageButton.setTag(item.getKey());
+        int id = item.isUnlocked() ? item.getBadge() : item.getLockedBadge();
+        Drawable drawable = this.getContext().getResources().getDrawable(id);
+        imageButton.setImageDrawable(drawable);
+        imageButton.setBackgroundColor(Color.TRANSPARENT);
+        if (item.isUnlocked())
+        {
+            imageButton.setOnClickListener(this);
         }
+        convertView = imageButton;
         return convertView;
     }
     

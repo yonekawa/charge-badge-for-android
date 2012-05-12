@@ -2,6 +2,7 @@ package jp.mog2dev.chargebadge.broadcast;
 
 import java.util.ArrayList;
 
+import jp.mog2dev.chargebadge.BadgeListActivity;
 import jp.mog2dev.chargebadge.achivement.AchivementManager;
 import jp.mog2dev.chargebadge.achivement.IAchivement;
 import jp.mog2dev.chargebadge.battery.BatteryInfo;
@@ -13,6 +14,13 @@ import android.content.Intent;
 public class BatteryMonitoringBroadcastReceiver extends BroadcastReceiver
 {
     private boolean isReceving = false;
+    private BadgeListActivity activity;
+    
+    public BatteryMonitoringBroadcastReceiver(BadgeListActivity activity)
+    {
+        super();
+        this.activity = activity;
+    }
     
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -50,7 +58,7 @@ public class BatteryMonitoringBroadcastReceiver extends BroadcastReceiver
             }
             
             if (isUnlockedSomething) {
-                // invalidate;
+                this.activity.invalidateView();
             }
             this.isReceving = false;
         }
